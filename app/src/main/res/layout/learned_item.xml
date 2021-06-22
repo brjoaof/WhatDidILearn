@@ -9,7 +9,6 @@
         android:id="@+id/level"
         android:layout_width="24dp"
         android:layout_height="0dp"
-        android:background="@color/purple_700"
         app:layout_constraintBottom_toBottomOf="@id/description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/item" />

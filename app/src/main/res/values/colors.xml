@@ -10,4 +10,5 @@
     <color name="red">#C30B0B</color>
     <color name="yellow">#FFC107</color>
     <color name="green">#237A14</color>
+    <color name="input_bg">#e9e9e9</color>
 </resources>

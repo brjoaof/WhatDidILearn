@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/default_space"
+    tools:context=".NewItem">
+
+
+    <TextView
+        android:id="@+id/txt_new_item"
+        style="@style/new_item_label"
+        android:text="@string/title_label"  />
+
+    <EditText
+        android:id="@+id/item_title"
+        android:layout_weight=".15"
+        android:inputType="textPersonName"
+        android:autofillHints="@string/hint_title"
+        style="@style/new_item_edit_text" />
+
+    <TextView
+        android:id="@+id/txt_item_description"
+        style="@style/new_item_label"
+        android:text="@string/description_label" />
+
+    <EditText
+        android:id="@+id/item_description"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:autofillHints="@string/hint_description"
+        style="@style/new_item_edit_text" />
+
+    <TextView
+        android:id="@+id/txt_level"
+        android:text="@string/level_label"
+        style="@style/new_item_label" />
+
+    <RadioGroup
+        android:id="@+id/group_level"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/small_space" >
+
+        <RadioButton
+            android:id="@+id/level_low"
+            style="@style/new_item_radio_button"
+            android:text="@string/low_level"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:id="@+id/level_medium"
+            style="@style/new_item_radio_button"
+            android:text="@string/medium_level"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:id="@+id/level_high"
+            android:text="@string/high_level"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/new_item_radio_button" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".15"
+        android:text="@string/save"
+        android:layout_marginTop="@dimen/default_space"
+        android:textColor="@color/white"
+        android:layout_gravity="end"/>
+
+
+</LinearLayout>
