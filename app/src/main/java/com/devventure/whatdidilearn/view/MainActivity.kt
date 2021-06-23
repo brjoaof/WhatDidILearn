@@ -1,10 +1,10 @@
-package com.devventure.whatdidilearn
+package com.devventure.whatdidilearn.view
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.devventure.whatdidilearn.WhatDidILearnedApplication
 import com.devventure.whatdidilearn.databinding.ActivityMainBinding
-import com.devventure.whatdidilearn.view.LearnedItemAdapter
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
