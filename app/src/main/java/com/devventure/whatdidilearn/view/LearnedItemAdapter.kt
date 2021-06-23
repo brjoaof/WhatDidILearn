@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.devventure.whatdidilearn.R
-import com.devventure.whatdidilearn.data.LearnedItem
+import com.devventure.whatdidilearn.entities.LearnedItem
 
 class LearnedItemAdapter: RecyclerView.Adapter<LearnedItemAdapter.LearnedItemViewHolder>() {
     var learnedItems = listOf<LearnedItem>()

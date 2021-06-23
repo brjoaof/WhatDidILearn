@@ -1,12 +1,8 @@
 package com.devventure.whatdidilearn
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.Observer
-import com.devventure.whatdidilearn.data.LearnedItem
-import com.devventure.whatdidilearn.data.LearnedItemDatabase
-import com.devventure.whatdidilearn.data.UnderstandingLevel
+import androidx.appcompat.app.AppCompatActivity
 import com.devventure.whatdidilearn.databinding.ActivityMainBinding
 import com.devventure.whatdidilearn.view.LearnedItemAdapter
 
@@ -20,20 +16,24 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.title = "What Did I Learn"
 
+//        Possível Soluçao para descobrir o espaço ocupado pela tabela
+//        val f: File = context.getDatabasePath(dbName)
+//        val dbSize: Long = f.length()
+
         val recycler = binding.learnedItensRecyclerView
         val adapter = LearnedItemAdapter()
         recycler.adapter = adapter
 
-        val database = (application as WhatDidILearnedApplication).databese
-        val items = database.learnedItemDao().getAll()
+        val repository = (application as WhatDidILearnedApplication).repository
+        val items = repository.learnedItems
 
-        items.observe(this, Observer {
+        items.observe(this, {
             adapter.learnedItems = it
         })
 
         val fab = binding.fabMain
         fab.setOnClickListener {
-            val intent = Intent(this, NewItem::class.java)
+            val intent = Intent(this, NewItemActivity::class.java)
             startActivity(intent)
         }
 
