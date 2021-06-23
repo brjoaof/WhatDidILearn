@@ -1,5 +1,6 @@
 package com.devventure.whatdidilearn.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -8,8 +9,8 @@ import androidx.room.Query
 interface LearnedItemDao {
 
     @Query("SELECT * FROM learned_item")
-    fun getAll(): List<LearnedItem>
+    fun getAll(): LiveData<List<LearnedItem>>
 
     @Insert
-    fun insert(learnedItem: LearnedItem)
+    fun insert(item: List<LearnedItem>)
 }

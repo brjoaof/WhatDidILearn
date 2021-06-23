@@ -3,6 +3,7 @@ package com.devventure.whatdidilearn
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.devventure.whatdidilearn.data.LearnedItem
 import com.devventure.whatdidilearn.data.LearnedItemDatabase
 import com.devventure.whatdidilearn.data.UnderstandingLevel
@@ -21,8 +22,14 @@ class MainActivity : AppCompatActivity() {
 
         val recycler = binding.learnedItensRecyclerView
         val adapter = LearnedItemAdapter()
-        adapter.learnedItems = LearnedItemDatabase.getAll()
         recycler.adapter = adapter
+
+        val database = (application as WhatDidILearnedApplication).databese
+        val items = database.learnedItemDao().getAll()
+
+        items.observe(this, Observer {
+            adapter.learnedItems = it
+        })
 
         val fab = binding.fabMain
         fab.setOnClickListener {
@@ -30,14 +37,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val database = (application as WhatDidILearnedApplication).databese
-        database.learnedItemDao().insert(
-            LearnedItem(
-                name = "Item de Teste",
-                description = "Será que vai funcionar?",
-                understandingLevel = UnderstandingLevel.LOW
-            )
-        )
 
     }
 }
